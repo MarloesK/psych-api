@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "psych-api"
+version = "0.1.0"
+description = "When life gives you Psych, you build a Psych API! 🍍"
+authors = ["Marloes <marloes.dev@protonmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = {extras = ["standard"], version = "^0.114.1"}
+slowapi = "^0.1.9"
+uvicorn = "^0.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
