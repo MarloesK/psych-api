@@ -1,15 +1,22 @@
 [tool.poetry]
-name = "psych-api"
+name = "psych_api"
 version = "0.1.0"
 description = "When life gives you Psych, you build a Psych API! 🍍"
 authors = ["Marloes <marloes.dev@protonmail.com>"]
 readme = "README.md"
+packages = [
+    { include = "src" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
 fastapi = {extras = ["standard"], version = "^0.114.1"}
 slowapi = "^0.1.9"
 uvicorn = "^0.31.0"
+pulumi-aws = "^6.54.0"
+pulumi = "^3.134.1"
+mangum = "^0.19.0"
+pydantic = "^2.9.2"
 
 
 [build-system]
