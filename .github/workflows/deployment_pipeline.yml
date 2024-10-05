@@ -22,7 +22,9 @@ jobs:
     steps:
       - name: Test pipeline
         shell: bash
-        run: echo 'this pipeline runs'
+        run: | 
+          echo 'this pipeline runs' 
+          echo $ECR_REGISTRY/$ECR_REPOSITORY
   build:
     runs-on: ubuntu-latest
     steps:
