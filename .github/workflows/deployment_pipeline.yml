@@ -11,7 +11,7 @@ permissions:
 
 env:
   ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
-  ECR_REPOSITORY: ${{ secrets.ECR_REPO_NAME }}
+  ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
   IMAGE_TAG: latest
   LAMBDA_FUNCTION_NAME: psych_api
   DOCKER_IMAGE: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
@@ -24,7 +24,11 @@ jobs:
         shell: bash
         run: | 
           echo 'this pipeline runs' 
+          echo $ECR_REGISTRY
+          echo $ECR_REPOSITORY
+          echo $IMAGE_TAG
           echo $ECR_REGISTRY/$ECR_REPOSITORY
+          echo $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
   build:
     runs-on: ubuntu-latest
     steps:
