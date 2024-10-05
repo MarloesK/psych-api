@@ -14,7 +14,6 @@ env:
   ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
   IMAGE_TAG: latest
   LAMBDA_FUNCTION_NAME: psych_api
-  DOCKER_IMAGE: $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
 jobs:
   test:
@@ -52,8 +51,8 @@ jobs:
       - name: Push Image
         shell: bash
         run: |
-          docker push $DOCKER_IMAGE
-          echo image $DOCKER_IMAGE was pushed successfully!
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo image $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG was pushed successfully!
 
 
   deploy:
@@ -67,4 +66,4 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Deploy
         run: | 
-          aws lambda update-function-code --function-name $LAMBDA_FUNCTION_NAME --image-uri $DOCKER_IMAGE --publish
+          aws lambda update-function-code --function-name $LAMBDA_FUNCTION_NAME --image-uri $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --publish
