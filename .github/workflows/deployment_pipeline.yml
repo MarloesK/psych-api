@@ -48,7 +48,7 @@ jobs:
       - name: Build image
         shell: bash
         run: |
-          docker build -t $DOCKER_IMAGE .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
       - name: Push Image
         shell: bash
         run: |
