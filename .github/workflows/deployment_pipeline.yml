@@ -13,7 +13,7 @@ env:
   ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
   ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
   IMAGE_TAG: latest
-  LAMBDA_FUNCTION_NAME: psych_api
+  LAMBDA_FUNCTION_NAME: psych-api
 
 jobs:
   test:
